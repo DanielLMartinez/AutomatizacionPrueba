@@ -1,5 +1,7 @@
 package DefinicionPasos;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,7 +40,7 @@ public class PasosTransferencia {
 	@Given("al navegar hasta la url {string}")
 	public void al_navegar_hasta_la_url(String url) throws InterruptedException {
 	    driver.get(url);
-	    Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 	}
 
 	@When("hacemos click en el link {string}")
