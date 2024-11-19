@@ -67,9 +67,75 @@ Scenario Outline: Login con usuario incorrecto y contraseña correcta desde pagi
 		When Se hace clic en el enlace de login.
 		And Se ingresa un correo incorrecto en el campo de email <mailIncorrecto>
 		And Se ingresa la contraseña Paratesting158. en el campo de contraseña.
+		And se clickea Inicia sesion
 		Then Se mantiene en login
 		
 				Examples:
       |mailIncorrecto|
       |"Hola1234@gmail.com"|
       |"fca.ramirez.alvarez@gmail.con"|
+      
+#12 y 13
+Scenario Outline: Login con usuario incorrecto y contraseña correcta desde pagina login
+		Given Se ingresa a la pagina login
+		When Se ingresa un correo incorrecto en el campo de email desde login <mailIncorrecto>
+		And Se ingresa la contraseña Paratesting158. en el campo de contraseña.
+		And se clickea Inicia sesion
+		Then Se mantiene en login
+		
+				Examples:
+      |mailIncorrecto|
+      |"Hola12345@gmail.com"|
+      |"fca.ramirez.alvarez@gmail.cons"|
+      
+#14 y 15
+Scenario Outline: Login con correo incorrecto y contraseña incorrecto desde pagina principal
+		When Se hace clic en el enlace de login.
+		When Se ingresa un correo incorrecto en el campo de email desde login <mailIncorrecto>
+		And Se ingresa contraseña incorrecta <contrasena>
+		And se clickea Inicia sesion
+		Then Se mantiene en login
+		
+						Examples:
+      |mailIncorrecto|contrasena|
+      |"Hola12345@gmail.com"|"ParaTest@gmail.com"|
+      |"fca.ramirez.alvarez@gmail.cons"|"Contrasena"|
+      
+#16 y 17
+Scenario Outline: Login con correo incorrecto y contraseña incorrecto desde pagina login
+		Given Se ingresa a la pagina login
+		When Se ingresa un correo incorrecto en el campo de email desde login <mailIncorrecto>
+		And Se ingresa contraseña incorrecta <contrasena>
+		And se clickea Inicia sesion
+		Then Se mantiene en login
+		
+						Examples:
+      |mailIncorrecto|contrasena|
+      |"Hola12345@gmail.com"|"ParaTest@gmail.com"|
+      |"fca.ramirez.alvarez@gmail.cons"|"Contrasena"|
+      
+#18 
+Scenario Outline: Login con correo correcto sin arroba y contraseña correcta desde pagina principal
+		When Se hace clic en el enlace de login.
+		And Se ingresa un correo correcto en el campo de email desde login <mailCorrecto>
+		And Se ingresa la contraseña Paratesting158. en el campo de contraseña.
+		And se clickea Inicia sesion
+		Then Se mantiene en login
+		
+								Examples:
+      |mailCorrecto|
+      |"fca.ramirez.alvarezgmail.com"|
+
+		
+#19
+@Unico
+Scenario Outline: Login con correo correcto sin arroba y contraseña correcta desde pagina login
+		Given Se ingresa a la pagina login
+		And Se ingresa un correo correcto en el campo de email desde login <mailCorrecto>
+		And Se ingresa la contraseña Paratesting158. en el campo de contraseña.
+		And se clickea Inicia sesion
+		Then Se mantiene en login
+		
+								Examples:
+      |mailCorrecto|
+      |"fca.ramirez.alvarezgmail.com"|

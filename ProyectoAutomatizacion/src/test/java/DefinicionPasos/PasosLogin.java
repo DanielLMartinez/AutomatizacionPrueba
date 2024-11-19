@@ -89,6 +89,7 @@ public class PasosLogin {
 	public void se_clickea_inicia_sesion() {
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	    driver.findElement(By.id("submit-login")).click();
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	}
 
 
@@ -98,6 +99,7 @@ public class PasosLogin {
 		if(mensajeSeMantieneEnLogin.contains("Iniciar sesión con su cuenta")) {
 			System.out.println("Se mantiene en login");
 		}else {System.out.println("Ocurrio un error");}
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	}
 	
 	@When("Se ingresa contraseña incorrecta {string}")
@@ -127,6 +129,26 @@ public class PasosLogin {
 	    driver.findElement(By.id("field-email")).clear();
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	    driver.findElement(By.id("field-email")).sendKeys(mailIncorrecto);
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+	}
+	
+	@When("Se ingresa un correo incorrecto en el campo de email desde login {string}")
+	public void se_ingresa_un_correo_incorrecto_en_el_campo_de_email_desde_login(String mailIncorrecto) {
+		driver.findElement(By.id("field-email")).click();
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+	    driver.findElement(By.id("field-email")).clear();
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+	    driver.findElement(By.id("field-email")).sendKeys(mailIncorrecto);
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+	}
+	
+	@When("Se ingresa un correo correcto en el campo de email desde login {string}")
+	public void se_ingresa_un_correo_correcto_en_el_campo_de_email_desde_login(String mailCorrecto) {
+		driver.findElement(By.id("field-email")).click();
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+	    driver.findElement(By.id("field-email")).clear();
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+	    driver.findElement(By.id("field-email")).sendKeys(mailCorrecto);
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	}
 }
