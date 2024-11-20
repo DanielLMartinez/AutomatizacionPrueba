@@ -128,7 +128,6 @@ Scenario Outline: Login con correo correcto sin arroba y contraseña correcta de
 
 		
 #19
-@Unico
 Scenario Outline: Login con correo correcto sin arroba y contraseña correcta desde pagina login
 		Given Se ingresa a la pagina login
 		And Se ingresa un correo correcto en el campo de email desde login <mailCorrecto>
