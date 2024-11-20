@@ -13,25 +13,22 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class PasosLogin {
-
-	
 	static WebDriver  driver;
 	static String pathDriver="./src/test/resources/chrome/chromedriver.exe";
 	static String tipoDriver="webdriver.chrome.driver";
 
 	@Before
 	public void setUp() throws Exception {
-	System.setProperty(tipoDriver, pathDriver);
-	driver=new ChromeDriver();
-	driver.manage().window().maximize();
-	driver.manage().deleteAllCookies();
+		System.setProperty(tipoDriver, pathDriver);
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 	}
 
-
 	@After
-	public void tearDown() throws Exception {
-	if (driver != null)
-	driver.quit();
+		public void tearDown() throws Exception {
+			if (driver != null)
+				driver.quit();
 	}
 	
 	@Given("Se ingresa a la pagina principal")
@@ -76,7 +73,7 @@ public class PasosLogin {
 		if(pagina.contains("Su cuenta")) {
 		System.out.println("paso");
 		} else System.out.println("No Paso");
-
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 	}
 	
 	@Given("Se ingresa a la pagina login")
