@@ -104,6 +104,11 @@ public class PasosConsultaDeHistorialDePedidos {
     @When("Se ingresa nuevamente a las opciones de cuenta")
     public void se_ingresa_nuevamente_a_las_opciones_de_cuenta() {
     	System.out.println("Con esta termino este feature y con este escenario quiero volver a la pagina principal para luego volver a la seccion de pedidos del usuario");
-        throw new io.cucumber.java.PendingException();
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    	driver.get("https://www.aldeajuegos.cl/mi-cuenta");
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//a[@id='history-link']/span/i")).click();
+		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+    	
     }
 }
