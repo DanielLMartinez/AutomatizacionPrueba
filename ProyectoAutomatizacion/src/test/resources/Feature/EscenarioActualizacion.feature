@@ -1,10 +1,31 @@
 Feature: Actualización de datos personales
 
-  Scenario: Actualización de nombre con sesión iniciada
-    Given Se ingresa al sitio "https://www.aldeajuegos.cl/datos-personales"
-    When El campo de nombre contiene el valor "FRANCISCA"
-    And Se cambia el valor del campo de nombre a "A"
-    And Se ingresa la contraseña "Paratesting158." en el campo correspondiente
-    And Se selecciona la opción para guardar los cambios
-    Then Aparece el mensaje "Información actualizada correctamente"
-    And El campo de nombre muestra "A"
+  Background: Inicio de sesion para actualizar datos
+    Given Se inicia sesion para actualizar datos
+
+	Scenario Outline: Actualización de nombre con sesión iniciada
+		When Se ingresa a datos personales
+		And Se cambia el nombre <nombre>
+		And Se ingresa contraseña
+		And Se aceptan los terminos
+		And Se guardan los cambios
+		Then Se verifica el nombre
+		
+						Examples:
+      |nombre|
+      |"FRAN"|
+      |"FRANCISCA"|
+      
+   Scenario Outline: Actualización de apellido con sesión iniciada
+   	When Se ingresa a datos personales
+   	And Se cambia el apellido <apellido>
+   	And Se ingresa contraseña
+   	And Se aceptan los terminos
+		And Se guardan los cambios
+		Then Se verifica el apellido
+		
+		
+		Examples:
+   	  |apellido|
+      |"RAMI"|
+      |"RAMIREZ"|
