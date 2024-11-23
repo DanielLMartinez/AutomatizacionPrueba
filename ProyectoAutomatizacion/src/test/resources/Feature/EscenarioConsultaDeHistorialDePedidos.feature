@@ -19,10 +19,3 @@ Scenario: Consulta de historial con usuario ingresado desde menú principal
 			When Se ingresa a la pagina principal
 			And Se ingresa nuevamente a las opciones de cuenta
 			Then Se confirma accede al historial
-
-#    Examples: 
-#      | name  | value | status  |
-#      | name1 |     5 | success |
-#      | name2 |     7 | Fail    |
-#					
-#con esta url ingresa de inmediato al historial driver.get("https://www.aldeajuegos.cl/iniciar-sesion?back=history");

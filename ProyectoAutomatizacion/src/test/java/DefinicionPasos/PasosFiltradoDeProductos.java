@@ -59,7 +59,6 @@ import java.util.List;
 	        
 	        try {
 	            By elementoEspecifico = By.xpath("//*[contains(text(), '" + tituloEsperado + "')]");
-	            //"//*[contains(text(), 'Cartas')]"
 	            wait.until(ExpectedConditions.presenceOfElementLocated(elementoEspecifico));
 
 	            List<WebElement> elementos = driver.findElements(elementoEspecifico);
@@ -82,7 +81,7 @@ import java.util.List;
 	            throw e;
 	        }
 	        
-	        String obj="Se_muestra_pagina_titulo_pagina";
+	        String obj="Se_valida_la_busqueda";
 	        Utility.captureScreenShot(driver, "evidencias\\"+obj+" "+Utility.GetTimeStampValue()+".png");
 	        
 	    }
