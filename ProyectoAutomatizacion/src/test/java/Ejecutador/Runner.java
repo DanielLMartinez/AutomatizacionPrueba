@@ -10,7 +10,7 @@ import io.cucumber.junit.Cucumber;
 		
 features = {"src/test/resources/Feature"}, 
 glue = {"DefinicionPasos"},
-//tags = "@Unico",
+tags = "@Unico",
 plugin = {	"json:target/cucumber.json", "pretty", "html:target/cucumber-reports/report.html",
 			"junit:target/cucumber-results.xml" },
 				monochrome = true
