@@ -1,5 +1,5 @@
 Feature: Feature: Búsqueda de productos en la tienda online
- 
+
  Scenario: Buscar Juegos de Mesa
     Given el usuario selecciona la categoría para búsqueda "Juegos de Mesa"
     When el usuario escribe "Juegos de Mesa" en la barra de búsqueda
@@ -65,7 +65,7 @@ Feature: Feature: Búsqueda de productos en la tienda online
     When el usuario escribe "Jugueteria!" en la barra de búsqueda
     And el usuario envía la búsqueda
     Then se muestra una página con el título que contiene "Puzzle"
-    
+ 
    Scenario: Buscar elemento con punto al principio
     Given el usuario selecciona elemento para búsqueda ".Jugueteria"
     When el usuario escribe ".Jugueteria" en la barra de búsqueda

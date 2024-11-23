@@ -4,7 +4,7 @@ Feature: Filtrar productos
     Given el usuario selecciona la categoría para búsqueda "Juegos de Mesa"
     When el usuario hace clic en el filtro "JUEGOS DE MESA"
     Then se muestra una página con el título que contiene "Juegos de Mesa"
-
+@Unico
   Scenario: Filtrar por Preventas
     Given el usuario selecciona la categoría para búsqueda "Preventa"
     When el usuario hace clic en el filtro "PREVENTA"
