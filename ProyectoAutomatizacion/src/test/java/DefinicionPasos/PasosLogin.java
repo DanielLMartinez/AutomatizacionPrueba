@@ -1,11 +1,13 @@
 package DefinicionPasos;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Utilidades.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -68,12 +70,14 @@ public class PasosLogin {
 	}
 
 	@Then("Se redirige a https:\\/\\/www.aldeajuegos.cl\\/mi-cuenta.")
-	public void se_redirige_a_https_www_aldeajuegos_cl_mi_cuenta() {
+	public void se_redirige_a_https_www_aldeajuegos_cl_mi_cuenta() throws IOException {
 		String pagina = driver.findElement(By.xpath("//*[@id='main']/header/h1")).getText();
 		if(pagina.contains("Su cuenta")) {
 		System.out.println("paso");
 		} else System.out.println("No Paso");
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        String obj="Se_valida_la_redireccion";
+        Utility.captureScreenShot(driver, "evidencias\\"+obj+" "+Utility.GetTimeStampValue()+".png");
 	}
 	
 	@Given("Se ingresa a la pagina login")
@@ -91,12 +95,14 @@ public class PasosLogin {
 
 
 	@Then("Se mantiene en login")
-	public void se_mantiene_en_login() {
+	public void se_mantiene_en_login() throws IOException {
 		String mensajeSeMantieneEnLogin = driver.findElement(By.xpath("//*[@id='main']/header/h1")).getText();
 		if(mensajeSeMantieneEnLogin.contains("Iniciar sesión con su cuenta")) {
 			System.out.println("Se mantiene en login");
 		}else {System.out.println("Ocurrio un error");}
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        String obj="Se_verifica_el_no_acceso";
+        Utility.captureScreenShot(driver, "evidencias\\"+obj+" "+Utility.GetTimeStampValue()+".png");
 	}
 	
 	@When("Se ingresa contraseña incorrecta {string}")

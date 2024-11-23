@@ -2,6 +2,8 @@ package DefinicionPasos;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import Utilidades.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -10,7 +12,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
 public class PasosActualizacion {
@@ -105,7 +107,7 @@ public class PasosActualizacion {
     }
 
     @Then("Se verifica el nombre")
-    public void se_verifica_el_nombre() throws InterruptedException {
+    public void se_verifica_el_nombre() throws InterruptedException, IOException {
         System.out.println("Se verifica el nombre");
         Thread.sleep(2000);
 		String validarCambioDeNombre = driver.findElement(By.xpath("//*[@id='_desktop_user_info']/div/a[2]/span")).getText();
@@ -115,6 +117,8 @@ public class PasosActualizacion {
 			System.out.println("Se valida segundo caso");
 			}
 		else {System.out.println("Error al validar");}
+        String obj="Se_verifica_actualizacion_de_nombre";
+        Utility.captureScreenShot(driver, "evidencias\\"+obj+" "+Utility.GetTimeStampValue()+".png");
     }
     
 
@@ -126,7 +130,7 @@ public class PasosActualizacion {
     }
 
     @Then("Se verifica el apellido")
-    public void se_verifica_el_apellido() throws InterruptedException {
+    public void se_verifica_el_apellido() throws InterruptedException, IOException {
         System.out.println("Se verifica el nombre");
         Thread.sleep(2000);
 		String validarCambioDeApellido = driver.findElement(By.xpath("//*[@id='_desktop_user_info']/div/a[2]/span")).getText();
@@ -136,5 +140,7 @@ public class PasosActualizacion {
 			System.out.println("Se valida cambio apellido segundo caso");
 			}
 		else {System.out.println("Error al validar el apellido");}
+        String obj="Se_verifica_actualizacion_de_apellido";
+        Utility.captureScreenShot(driver, "evidencias\\"+obj+" "+Utility.GetTimeStampValue()+".png");
     }
 }

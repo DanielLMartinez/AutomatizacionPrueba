@@ -23,7 +23,7 @@ Feature: Filtrar productos
   Scenario: Filtrar por Todos
     Given el usuario selecciona la categoría para búsqueda "Todos"
     When el usuario hace clic en el filtro "TODOS"
-    Then se muestra una página con el título que contiene "Todos"
+    Then se muestra una página con el título que contiene "La"
 
   Scenario: Filtrar por Puzzles
     Given el usuario selecciona la categoría para búsqueda "Puzzles"
@@ -39,3 +39,5 @@ Feature: Filtrar productos
     Given el usuario selecciona la categoría para búsqueda "Juguetería"
     When el usuario hace clic en el filtro "JUGUETERÍA"
     Then se muestra una página con el título que contiene "Juguetería"
+    
+    

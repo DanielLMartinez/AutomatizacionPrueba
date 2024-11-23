@@ -3,6 +3,7 @@ package DefinicionPasos;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -259,4 +260,10 @@ public class PasosBusquedaDeProductos {
         searchBar.submit();
     }
     
+    @Given("el usuario selecciona elemento para búsqueda {string}")
+    public void el_usuario_selecciona_elemento_para_búsqueda(String elemento) {
+    	System.out.println("Preparando la búsqueda para la categoría: " + elemento);
+    }
+
+
 }

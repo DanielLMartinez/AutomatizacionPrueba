@@ -1,11 +1,13 @@
 package DefinicionPasos;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Utilidades.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -61,21 +63,25 @@ public class PasosConsultaDeHistorialDePedidos {
     }
 
     @Then("Se confirma accede al historial")
-    public void se_confirma_accede_al_historial() {
+    public void se_confirma_accede_al_historial() throws IOException {
     	String seAccedeCorrectamenteHistorial = driver.findElement(By.xpath("//*[@id='main']/header/h1")).getText();
     	if(seAccedeCorrectamenteHistorial.contains("Historial de pedidos")){
     		System.out.println("Se ingreso correctamente a pedidos");}
     		else {System.out.println("Error al ingresar a pedidos");
     		}
+        String obj="Se_confirma_acceso_a_historial";
+        Utility.captureScreenShot(driver, "evidencias\\"+obj+" "+Utility.GetTimeStampValue()+".png");
     	}
     
     @Then("Se verifica ID de primer pedido")
-    public void se_verifica_id_de_primer_pedido() {
+    public void se_verifica_id_de_primer_pedido() throws IOException {
     	String seVerificaIdentidicador = driver.findElement(By.xpath("//section[@id='content']/table/tbody/tr/th")).getText();
     	if(seVerificaIdentidicador.contains("DCDDYHGCN")){
     		System.out.println("Verificacion correcta");}
     		else {System.out.println("Error al verificar pedido");
     		}
+        String obj="Se_verifica_ID";
+        Utility.captureScreenShot(driver, "evidencias\\"+obj+" "+Utility.GetTimeStampValue()+".png");
     }
     
     @Given("Se inicia sesion para consular historial con atajo en url")
